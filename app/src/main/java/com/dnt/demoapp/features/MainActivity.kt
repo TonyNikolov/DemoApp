@@ -1,4 +1,4 @@
-package com.dnt.demoapp
+package com.dnt.demoapp.features
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.dnt.demoapp.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -45,5 +46,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp() =
-        Navigation.findNavController(this, R.id.nav_host_fragment).navigateUp()
+        Navigation.findNavController(this,
+            R.id.nav_host_fragment
+        ).navigateUp()
 }

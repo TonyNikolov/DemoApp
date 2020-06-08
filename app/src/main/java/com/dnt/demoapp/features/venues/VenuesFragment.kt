@@ -1,16 +1,30 @@
-package com.dnt.demoapp
+package com.dnt.demoapp.features.venues
 
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import com.dnt.demoapp.R
+import com.dnt.demoapp.features.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_venues.*
+import javax.inject.Inject
 
-class VenuesFragment : Fragment() {
+class VenuesFragment : BaseFragment() {
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val viewModel by viewModels<VenuesViewModel> { viewModelFactory }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        appComponent.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +39,7 @@ class VenuesFragment : Fragment() {
 
         initToolbar()
         initButtons()
+        viewModel.getVenues()
     }
 
     private fun initToolbar() {
@@ -37,5 +52,6 @@ class VenuesFragment : Fragment() {
     }
 
     private fun initButtons() {
+
     }
 }

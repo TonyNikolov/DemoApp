@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_venues"
-        android:name="com.dnt.demoapp.VenuesFragment"
+        android:name="com.dnt.demoapp.features.venues.VenuesFragment"
         android:label="@string/title_venues"
         tools:layout="@layout/fragment_venues"/>
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.dnt.demoapp.SettingsFragment"
+        android:name="com.dnt.demoapp.features.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>
