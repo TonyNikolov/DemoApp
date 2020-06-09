@@ -54,7 +54,7 @@ class NetworkModule : INetworkModule {
     ): DemoAppApi {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .baseUrl("https://gateway.marvel.com/")
+            .baseUrl(BuildConfig.MARVEL_API_ENDPOINT)
             .client(okHttpClient)
             .build()
             .create(DemoAppApi::class.java)

@@ -3,6 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
+def marvelApiKeyPropertiesFile = rootProject.file("marvelApiKey.properties")
+def marvelApiKeyProperties = new Properties()
+marvelApiKeyProperties.load(new FileInputStream(marvelApiKeyPropertiesFile))
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -41,22 +45,11 @@ android {
     }
 
     productFlavors {
-        prod {
-            buildConfigField 'String', 'REST_ENDPOINT', '"https://api.deliveroosourced.com/"'
-        }
-
-        uat {
-            applicationIdSuffix '.uat'
-            buildConfigField 'String', 'REST_ENDPOINT', '"https://api.deliveroosourced.com/"'
-        }
-        qa {
-
-            applicationIdSuffix '.qa'
-            buildConfigField 'String', 'REST_ENDPOINT', '"https://api.deliveroosourced.com/"'
-        }
         dev {
             applicationIdSuffix '.dev'
-            buildConfigField 'String', 'REST_ENDPOINT', '"https://api.deliveroosourced.com/"'
+            buildConfigField 'String', 'MARVEL_API_ENDPOINT', '"https://gateway.marvel.com/"'
+            buildConfigField 'String', 'MARVEL_PUBLIC_API_KEY', marvelApiKeyProperties['marvelPublicApiKey']
+            buildConfigField 'String', 'MARVEL_PRIVATE_API_KEY', marvelApiKeyProperties['marvelPrivateApiKey']
         }
     }
 }

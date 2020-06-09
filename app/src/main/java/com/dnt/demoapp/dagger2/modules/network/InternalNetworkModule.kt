@@ -1,9 +1,7 @@
 package com.dnt.demoapp.dagger2.modules.network
 
 import android.content.Context
-import android.security.KeyChain.getPrivateKey
-import com.dnt.demoapp.api.API_PRIVATE_KEY
-import com.dnt.demoapp.api.API_PUBLIC_KEY
+import com.dnt.demoapp.BuildConfig
 import com.dnt.demoapp.dagger2.NetworkConnectionInterceptor
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
@@ -36,9 +34,9 @@ class InternalNetworkModule {
         return Interceptor {
             val request: Request = it.request()
             val timeStamp = System.currentTimeMillis().toString()
-            val hashInput: String = timeStamp + API_PRIVATE_KEY + API_PUBLIC_KEY
+            val hashInput: String = timeStamp + BuildConfig.MARVEL_PRIVATE_API_KEY + BuildConfig.MARVEL_PUBLIC_API_KEY
             val url: HttpUrl = request.url().newBuilder()
-                .addQueryParameter("apikey", API_PUBLIC_KEY)
+                .addQueryParameter("apikey", BuildConfig.MARVEL_PUBLIC_API_KEY)
                 .addQueryParameter("ts", timeStamp)
                 .addQueryParameter("hash", hashInput.md5())
                 .build()

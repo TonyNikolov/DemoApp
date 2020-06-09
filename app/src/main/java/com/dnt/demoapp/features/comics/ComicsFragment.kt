@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.dnt.demoapp.R
 import com.dnt.demoapp.features.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_venues.*
+import kotlinx.android.synthetic.main.fragment_comics.*
 import javax.inject.Inject
 
 class ComicsFragment : BaseFragment() {
