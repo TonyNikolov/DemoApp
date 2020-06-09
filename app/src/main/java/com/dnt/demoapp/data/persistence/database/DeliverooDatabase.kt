@@ -11,5 +11,5 @@ abstract class DemoAppDatabase : RoomDatabase() {
         const val DATABASE_NAME = "DemoAppDatabase"
     }
 
-    abstract fun venueDao(): ComicsDao
+    abstract fun comicsDao(): ComicsDao
 }

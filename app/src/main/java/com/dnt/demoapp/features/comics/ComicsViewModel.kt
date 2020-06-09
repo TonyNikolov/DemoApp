@@ -1,15 +1,15 @@
-package com.dnt.demoapp.features.venues
+package com.dnt.demoapp.features.comics
 
 import androidx.lifecycle.ViewModel
 import com.dnt.demoapp.data.repositories.IComicsRepository
 import javax.inject.Inject
 
-class VenuesViewModel @Inject constructor(private val venuesRepository: IComicsRepository) :
+class ComicsViewModel @Inject constructor(private val comicsRepository: IComicsRepository) :
     ViewModel() {
 
-    fun getVenues() {
+    fun getComics() {
         Thread(Runnable {
-            val venues = venuesRepository.getAll()
+            val venues = comicsRepository.getAll()
             val b = 5
         }).start()
     }

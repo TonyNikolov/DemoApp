@@ -2,7 +2,7 @@ package com.dnt.demoapp.dagger2.modules.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dnt.demoapp.features.venues.VenuesViewModel
+import com.dnt.demoapp.features.comics.ComicsViewModel
 import com.dnt.demoapp.dagger2.viewmodels.ViewModelFactory
 import com.dnt.demoapp.dagger2.viewmodels.ViewModelKey
 import dagger.Binds
@@ -18,6 +18,6 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(VenuesViewModel::class)
-    internal abstract fun bindVenuesViewModel(venuesViewModel: VenuesViewModel): ViewModel
+    @ViewModelKey(ComicsViewModel::class)
+    internal abstract fun bindComicsViewModel(comicsViewModel: ComicsViewModel): ViewModel
 }

@@ -31,10 +31,10 @@ class PersistenceModule {
 
     @Provides
     @Singleton
-    fun providesVenueRepository(demoAppApi: DemoAppApi, venueDao: ComicsDao): IComicsRepository = ComicsRepository(demoAppApi, venueDao)
+    fun providesComicsRepository(demoAppApi: DemoAppApi, venueDao: ComicsDao): IComicsRepository = ComicsRepository(demoAppApi, venueDao)
 
     @Provides
     @Singleton
-    fun providesVenueDao(database: DemoAppDatabase): ComicsDao = database.venueDao()
+    fun providesComicsDao(database: DemoAppDatabase): ComicsDao = database.comicsDao()
 
 }

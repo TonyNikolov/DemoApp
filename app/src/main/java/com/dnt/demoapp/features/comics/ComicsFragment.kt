@@ -1,4 +1,4 @@
-package com.dnt.demoapp.features.venues
+package com.dnt.demoapp.features.comics
 
 import android.app.Activity
 import android.content.Context
@@ -14,11 +14,11 @@ import com.dnt.demoapp.features.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_venues.*
 import javax.inject.Inject
 
-class VenuesFragment : BaseFragment() {
+class ComicsFragment : BaseFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val viewModel by viewModels<VenuesViewModel> { viewModelFactory }
+    private val viewModel by viewModels<ComicsViewModel> { viewModelFactory }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -31,7 +31,7 @@ class VenuesFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_venues, container, false)
+        return inflater.inflate(R.layout.fragment_comics, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ class VenuesFragment : BaseFragment() {
 
         initToolbar()
         initButtons()
-        viewModel.getVenues()
+        viewModel.getComics()
     }
 
     private fun initToolbar() {
