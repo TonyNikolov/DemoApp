@@ -11,7 +11,7 @@ import timber.log.Timber
 import java.io.PrintWriter
 import java.io.StringWriter
 
-class DemoApp : Application() {
+open class DemoApp : Application() {
     companion object {
         class ProductionTree : Timber.Tree() {
             override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
@@ -50,7 +50,7 @@ class DemoApp : Application() {
         initAppComponent()
     }
 
-    fun initAppComponent() {
+    open fun initAppComponent() {
         appComponent = DaggerAppComponent.builder()
             .contextModule(ContextModule(this))
             .build()
